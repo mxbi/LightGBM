@@ -148,7 +148,7 @@ void GBDT::Bagging(int iter) {
       bag_data_cnt_ = cur_left_cnt;
       out_of_bag_data_cnt_ = num_data_ - bag_data_cnt_;
     }
-    Log::Stdout("re-bagging, using %d data to train", bag_data_cnt_);
+    //Log::Stdout("re-bagging, using %d data to train", bag_data_cnt_);
     // set bagging data to tree learner
     tree_learner_->SetBaggingData(bag_data_indices_, bag_data_cnt_);
   }
@@ -192,8 +192,8 @@ void GBDT::Train() {
     fflush(output_model_file);
     auto end_time = std::chrono::high_resolution_clock::now();
     // output used time on each iteration
-    Log::Stdout("%f seconds elapsed, finished %d iteration", std::chrono::duration<double,
-                                     std::milli>(end_time - start_time) * 1e-3, iter + 1);
+    //Log::Stdout("%f seconds elapsed, finished %d iteration", std::chrono::duration<double,
+    //                                 std::milli>(end_time - start_time) * 1e-3, iter + 1);
   }
   // close file
   fclose(output_model_file);
